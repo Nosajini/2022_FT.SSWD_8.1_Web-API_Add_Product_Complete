@@ -42,3 +42,22 @@ model product {
   // onDelete and onUpdate define what happens if the category a product belongs to is updated or deleted.
   category            category? @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
+
+// Data Model for supportArea
+model supportArea {
+  // The primary key is annotated by @id
+  // @default(autoincrement) generates unique id values on insert by default
+  id                   Int  @id @default(autoincrement())
+  areaName             String
+  support              support[]
+}
+
+// Data Model for support
+model support {
+  id                  Int @id @default(autoincrement())
+  supportArea_id      Int
+  email               String
+  name                String
+  message             String
+  supportArea         supportArea? @relation(fields: [supportArea_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}

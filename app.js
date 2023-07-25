@@ -38,7 +38,8 @@ app.use(express.urlencoded({ extended: true }));
 // Routes - Configure app Routes to handle requests from browser
 // These will be redirected to a controller
 app.use('/', require('./controllers/index'));
-
+app.use('/support', require('./controllers/supportController'));
+app.use('/supportarea', require('./controllers/supportAreaController'));
 app.use('/product', require('./controllers/productController'));
 app.use('/category', require('./controllers/categoryController'));
 
