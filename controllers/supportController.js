@@ -67,14 +67,14 @@ router.post('/', async(req, res) => {
 
   // Call productService to create the new product
   try {
-    const result = await productService.addNewProduct(new_product);
+    const result = await supportService.addNewSupport(new_support);
 
     // Send response back to client
     res.json(result);
 
     // Catch and send errors
   } catch (err) {
-    console.log('POST product/ - ', err.message);
+    console.log('POST support/ - ', err.message);
     res.sendStatus(500);  
   }
 

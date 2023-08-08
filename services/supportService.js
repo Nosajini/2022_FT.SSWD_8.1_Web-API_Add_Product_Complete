@@ -1,4 +1,6 @@
 const supportData = require('../dataAccess/supportData')
+const validate = require('../validators/baseValidators');
+const supportValidator = require('../validators/supportValidator');
 
 async function getSupport() {
     const supportTickets = await supportData.getSupport();
@@ -47,7 +49,7 @@ async function addNewSupport(support_data) {
   let result;
 
     // Call the support validator - kept seperate to avoid clutter here
-    let validated_support = supportValidator.validateNewsupport(support_data); 
+    let validated_support = supportValidator.validateNewSupport(support_data); 
 
     // If validation returned a support object - save to database
     if (validated_support) {

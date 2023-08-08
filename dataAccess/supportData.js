@@ -87,7 +87,7 @@ async function createSupport(support) {
 
     }
     // return the new product
-    return new_product;
+    return new_ticket;
 }
 
 
